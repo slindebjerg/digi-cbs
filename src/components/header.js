@@ -1,6 +1,6 @@
 // Import libraries for making a component
 import React from 'react';
-import { StatusBar,  Text, View } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
 
 // Make a component
 const Header = (props) => {
