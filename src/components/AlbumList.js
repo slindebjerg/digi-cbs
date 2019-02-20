@@ -1,11 +1,17 @@
 // Import libraries for making a component
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
+import AlbumDetail from './AlbumDetail'
 
 // Make a component
 class AlbumList extends Component {
   state = { albums: [] };
+
+  renderAlbums() {
+    return this.state.albums.map(album => 
+      <AlbumDetail key={album.title} record={album}/>);
+  }
 
   componentWillMount(){
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
@@ -16,9 +22,9 @@ class AlbumList extends Component {
     console.log(this.state)
     
     return (
-      <View>
-        <Text>Album List</Text>
-      </View>
+      <ScrollView>
+        {this.renderAlbums()}
+      </ScrollView>
     )
   }
 }
